@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=3 uid="uid://deg4rkihjlun"]
+
+[ext_resource type="PackedScene" uid="uid://bhk2rjebfccf5" path="res://sprite_2d.tscn" id="1_pa3sh"]
+[ext_resource type="Script" path="res://Label.gd" id="2_w7jeo"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="GodotSprite" parent="." instance=ExtResource("1_pa3sh")]
+
+[node name="Timer" type="Timer" parent="GodotSprite"]
+autostart = true
+
+[node name="Button" type="Button" parent="."]
+offset_left = 30.0
+offset_top = 28.0
+offset_right = 178.0
+offset_bottom = 81.0
+text = "Toggle motion"
+
+[node name="Label" type="Label" parent="."]
+offset_left = 192.0
+offset_top = 28.0
+offset_right = 320.0
+offset_bottom = 81.0
+text = "Invisible"
+script = ExtResource("2_w7jeo")
+
+[connection signal="outside_viewport" from="GodotSprite" to="Label" method="_on_sprite_2d_outside_viewport"]
+[connection signal="pressed" from="Button" to="GodotSprite" method="_on_button_pressed"]
