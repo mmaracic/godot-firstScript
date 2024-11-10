@@ -1,7 +1,9 @@
 #https://docs.godotengine.org/en/stable/getting_started/step_by_step/scripting_first_script.html
 #https://docs.godotengine.org/en/stable/getting_started/step_by_step/scripting_player_input.html
+#https://docs.godotengine.org/en/stable/getting_started/step_by_step/signals.html
 extends Sprite2D
 
+@export var move_automatically:bool = true
 signal outside_viewport 
 
 var isInside = true
@@ -12,8 +14,10 @@ func  _init():
 	print("Helxlo world!")
 
 func _process(delta):
-	moveAutomatically(delta)
-	#moveManually(delta)
+	if move_automatically:
+		moveAutomatically(delta)
+	else:
+		moveManually(delta)
 	insideViewport()
 	#print(position)
 

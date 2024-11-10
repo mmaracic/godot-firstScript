@@ -5,7 +5,6 @@ services:
       image: nginx
       volumes:
        - ./nginx/conf:/etc/nginx
-       - ./nginx/templates:/etc/nginx/templates
        - ./nginx/src:/usr/share/nginx/html
       healthcheck:
         test: curl --fail http://localhost:8080 || exit 1
